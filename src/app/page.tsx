@@ -1,103 +1,133 @@
-import Image from "next/image";
+// src/app/page.tsx
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import { ProjectCard } from "@/components/ProjectCard"; 
+import SkillsSection from "@/components/SkillSection";
+import CertificationsSection from "@/components/CertificationSection";
+
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-primary pt-24">
+      {/* 👆 pt-24 adds spacing so navbar doesn’t block Hero */}
+      <Navbar />
+      <Hero />
+      <div className="w-1/4 mx-auto border-b border-neutral mt-20"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Projects Section */}
+      <section id="projects" className="bg-primary py-20">
+
+        <h2 className="text-4xl mb-12 text-center font-serif">Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-[1000px] mx-auto px-6 items-stretch">
+        <ProjectCard
+            title="KICT X-Change Web Application"
+            description="A centralized platform designed to make the international mobility process clearer and more accessible for IIUM students. The system digitizes applications, staff proposals, and alumni experience sharing, enhancing communication and efficiency for both the faculty and the Office of International Affairs."
+            tech={["Laravel", "PHP", "MySQL", "HTML", "CSS", "JS"]}
+          />
+          <ProjectCard
+            title="Teleport Next Day's Post Signup Cadence"
+            description="Automated lead-nurturing pipeline that reads new user entries from Google Sheets, enriches them via external APIs for CRM, and triggers a drip-email sequence to onboard and engage new signups. Includes error handling, scheduling, and templated email content for scalability."
+            tech={["n8n", "APIs", "Looker Studio", "SDLC", "Automation"]}
+          />
+          <ProjectCard
+            title="Uncovering Malaysia's Blood Donation Trends"
+            description="An interactive Tableau dashboard analyzing Malaysia’s blood donation trends (2022–2025) using MOH datasets. Conducted data cleaning, statistical analysis, and visualization to uncover demographic, seasonal, and regional patterns. Determined key insights and delivered data-driven recommendations."
+            tech={["Tableau", "Data Visualisation", "Spreadsheet"]}
+          />
+          <ProjectCard
+            title="Serenity-Sphere Web Application"
+            description="A calm, user-focused web application built to allow users to track and review daily wellness insights (meditation, mood, journaling). Features include user authentication, personalized dashboards, and data visualizations to reflect trends over time. Built with Next.js, Tailwind CSS, and a backend API for storing entries."
+            tech={["Laravel", "PHP", "MySQL", "UI/UX"]}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      </section>
+      <div className="w-1/4 mx-auto border-b border-neutral mt-15"></div>
+
+
+      {/* Skills & Tech Stack Section */}
+      <section id="skills" className="bg-primary py-20">
+      <SkillsSection />
+      <div className="w-1/4 mx-auto border-b border-neutral mt-10"></div>
+
+      </section>
+
+      {/* Skills & Tech Stack Section */}
+      <section id="cert" className="bg-primary">
+      <CertificationsSection />
+      <div className="w-1/4 mx-auto border-b border-neutral mt-15"></div>
+
+      </section>
+
+
+      {/* Hobbies Section */}
+      <section id="hobbies" className="bg-primary py-20">
+      <h2 className="text-4xl mb-12 text-center font-serif">Hobbies & Interests</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center max-w-[1200px] mx-auto px-6">
+          <div className="p-6 bg-white rounded-xl shadow-sm border border-neutral">
+            <span className="text-6xl">🏎️</span>
+            <p className="mt-3 text-base">F1 Racing</p>
+          </div>
+          <div className="p-6 bg-white rounded-xl shadow-sm border border-neutral">
+            <span className="text-6xl">🗺️</span>
+            <p className="mt-3 text-base">Travel</p>
+          </div>
+          <div className="p-6 bg-white rounded-xl shadow-sm border border-neutral">
+            <span className="text-6xl">🤼</span>
+            <p className="mt-3 text-base">WWE</p>
+          </div>
+          <div className="p-6 bg-white rounded-xl shadow-sm border border-neutral">
+            <span className="text-6xl">🧁</span>
+            <p className="mt-3 text-base">Baking</p>
+          </div>
+        </div>
+
+      </section>
+      <div className="w-1/4 mx-auto border-b border-neutral mt-10"></div>
+
+
+      {/* Contact Section */}
+      <section id="contact" className="bg-primary py-20 text-center">
+
+        <h2 className="text-4xl mb-6 font-serif">Let’s Connect</h2>
+        <p className="text-neutral mb-8">
+          Always open to talk about good food and movies.
+        </p>
+        <div className="flex justify-center gap-6">
+          <a href="mailto:surayaa0103@gmail.com" className="hover:text-accent transition-colors">
+            📧 Email
+          </a>
+          <a
+            href="https://www.linkedin.com/in/suraya-aini/"
+            target="_blank"
+            className="hover:text-accent transition-colors"
+          >
+            💼 LinkedIn
+          </a>
+          <a
+            href="https://github.com/surayaaini"
+            target="_blank"
+            className="hover:text-accent transition-colors"
+          >
+            💻 GitHub
+          </a>
+          <a
+            href="https://www.goodreads.com/user/show/132171139-suraya"
+            target="_blank"
+            className="hover:text-accent transition-colors"
+          >
+            📖 Goodreads
+          </a>
+
+        </div>
+        
+      </section>
+
+      <footer className="border-t mt-12">
+        <div className="max-w-[1200px] mx-auto px-6 py-8 text-sm text-neutral text-center">
+          © {new Date().getFullYear()} Suraya Aini — Built with Next.js
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
