@@ -91,7 +91,7 @@ export default function Home() {
 
         <h2 className="text-4xl mb-6 font-serif">Let’s Connect</h2>
         <p className="text-neutral mb-8">
-          Always open to talk about good food and movies.
+          Always open to talk about good food, books and movies.
         </p>
         <div className="flex justify-center gap-6">
           <a href="mailto:surayaa0103@gmail.com" className="hover:text-accent transition-colors">
